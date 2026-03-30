@@ -26,7 +26,7 @@ function updateCountdown() {
   const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
-  // Formateo visual (añade 0 si es menor a 10)
+  // Formateo visual
   if(daysEl) daysEl.textContent = d < 10 ? '0' + d : d;
   if(hoursEl) hoursEl.textContent = h < 10 ? '0' + h : h;
   if(minutesEl) minutesEl.textContent = m < 10 ? '0' + m : m;
@@ -34,20 +34,17 @@ function updateCountdown() {
 
 // Iniciar contador
 updateCountdown();
-setInterval(updateCountdown, 60000); // Actualiza cada minuto (no necesitamos segundos en la UI)
+setInterval(updateCountdown, 60000);
 
-// 2. SCROLL Y ACTUALIZACIÓN DE PUNTOS DE NAVEGACIÓN
+// 2. SCROLL Y NAVEGACIÓN
 const scrollContainer = document.getElementById('scrollContainer');
 const dots = document.querySelectorAll('.dot');
 const panels = document.querySelectorAll('.panel');
 let currentPanel = 0;
 
-// Función para scrollear al hacer clic en un botón o punto
 function scrollToPanel(index) {
   if (panels[index]) {
-    // Obtenemos la distancia exacta de esa sección desde el tope
     const targetTop = panels[index].offsetTop;
-    // Le ordenamos al contenedor que haga el scroll hasta esa distancia
     scrollContainer.scrollTo({ 
       top: targetTop, 
       behavior: 'smooth'
@@ -55,39 +52,80 @@ function scrollToPanel(index) {
   }
 }
 
-// Asignar clics a los puntos
+// Click en dots
 dots.forEach((dot, i) => {
   dot.addEventListener('click', () => scrollToPanel(i));
 });
 
-// Usamos IntersectionObserver para detectar en qué panel estamos 
-// (Es 100% a prueba de fallos frente a la matemática antigua)
+// Observer para detectar sección activa
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const idx = Array.from(panels).indexOf(entry.target);
       
-      // 1. Pintar el puntito correcto de forma segura
       dots.forEach(d => d.classList.remove('active'));
       if(dots[idx]) {
         dots[idx].classList.add('active');
       }
       
-      // 2. Revelar las animaciones (fade-up) de esa sección
       const items = entry.target.querySelectorAll('.reveal-up');
       items.forEach(el => el.classList.add('visible'));
     }
   });
 }, { 
   root: scrollContainer, 
-  threshold: 0.3 // Se activa cuando al menos el 30% del panel se ve en pantalla
+  threshold: 0.3
 });
 
-// Le decimos al observador que vigile todos los paneles
+// Observar panels
 panels.forEach(p => observer.observe(p));
 
-// Forzar la animación del primer panel al cargar
+// Animar primer panel
 const firstItems = panels[0].querySelectorAll('.reveal-up');
 setTimeout(() => {
   firstItems.forEach(el => el.classList.add('visible'));
 }, 100);
+
+
+// ===== MÚSICA DE FONDO =====
+let musicStarted = false;
+
+function startExperience(){
+
+  // Obtener el audio en tiempo real
+  const music = document.getElementById("bg-music");
+
+  if(!musicStarted && music){
+    fadeInAudio(music);
+    musicStarted = true;
+  }
+
+  scrollToPanel(1);
+}
+
+// Fade elegante
+function fadeInAudio(audio){
+  audio.volume = 0;
+
+  const playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+
+      let vol = 0;
+      const target = 0.5;
+
+      const interval = setInterval(() => {
+        if(vol < target){
+          vol += 0.05;
+          audio.volume = vol;
+        } else {
+          clearInterval(interval);
+        }
+      }, 200);
+
+    }).catch(error => {
+      console.log("Error reproduciendo audio:", error);
+    });
+  }
+}
