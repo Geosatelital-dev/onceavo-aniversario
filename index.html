@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geosatelital - 11 Aniversario</title>
+  <link rel="stylesheet" href="style.css" />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="nav-dots" aria-label="Navegación de secciones">
+    <button class="dot active" data-section="0" aria-label="Inicio"></button>
+    <button class="dot" data-section="1" aria-label="Invitación"></button>
+    <button class="dot" data-section="2" aria-label="Nosotros"></button>
+    <button class="dot" data-section="3" aria-label="Recomendaciones"></button>
+    <button class="dot" data-section="4" aria-label="Fiesta"></button>
+    <button class="dot" data-section="5" aria-label="Cuenta Regresiva"></button>
+  </nav>
+
+  <div class="scroll-container" id="scrollContainer">
+
+    <!-- HERO -->
+    <section class="panel panel-dark hero-panel" id="panel-0">
+      <div class="hero-bg-overlay"></div>
+      
+      <div class="panel-content container-desktop text-center text-white">
+        <img src="img/GEO-LOGO.png" alt="Geosatelital" class="hero-logo reveal-up">
+        
+        <div class="hero-titles">
+          <h1 class="hero-script text-white reveal-up delay-1">Algo grande está pasando</h1>
+        </div>
+        
+        <p class="hero-sub reveal-up delay-2">Y TÚ ERES PARTE DE ESO</p>
+        
+        <div class="hero-action reveal-up delay-3">
+          <button class="btn-primary" onclick="scrollToPanel(1)">
+            Descubrir más
+          </button>
+          
+          <div class="hero-arrow-container" onclick="scrollToPanel(1)">
+            <i class="fa-solid fa-arrow-down hero-arrow"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVITACIÓN -->
+    <section class="panel panel-dark" id="panel-1">
+      <div class="panel-content container-desktop invite-map-section">
+        
+        <div class="invite-header text-center reveal-up">
+          <div class="pill-badge">INVITACIÓN ESPECIAL</div>
+          
+          <h2 class="invite-cursive-title mt-3">
+            <img src="img/separador.svg" alt="Adorno" class="ornament"> 
+            Estas invitado 
+            <img src="img/separador.svg" alt="Adorno" class="ornament right">
+          </h2>
+          
+          <div class="balloons-container my-2">
+            <img src="img/ONCE.png" alt="11" class="balloons-img" onerror="this.style.display='none'">
+          </div>
+          
+          <h3 class="aniversario-title">Aniversario</h3>
+          
+          <img src="img/line.svg" alt="Separador" class="invite-separator my-3" onerror="this.style.display='none'">
+          
+          <p class="invite-subtitle">Para vivirlo como nunca antes:</p>
+        </div>
+
+        <div class="details-row reveal-up delay-1">
+          <div class="detail-box">
+            <span class="box-label">FECHA</span>
+            <span class="box-value">17 de Abril</span>
+          </div>
+          <div class="detail-box">
+            <span class="box-label">HORA</span>
+            <span class="box-value">7 pm</span>
+          </div>
+          <div class="detail-box wide-box">
+            <span class="box-label">LUGAR</span>
+            <span class="box-value">Av. Chillón Trapiche 1590 Comas - Lima</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="map-full-container reveal-up delay-2">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3904.139489400223!2d-77.04775169999999!3d-11.895373900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105d0e527f30781%3A0xa685b443a5d31279!2sAv.%20Chill%C3%B3n%20Trapiche%201590%2C%20Comas%2015316!5e0!3m2!1ses!2spe!4v1774567773546!5m2!1ses!2spe" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="map-action text-center reveal-up delay-3 mt-4">
+        <a href="https://maps.app.goo.gl/u75KJNBznH8nEPAz9" target="_blank" class="btn-map">Ver en mapa</a>
+      </div>
+      
+    </section>
+
+
+    <section class="panel panel-light" id="panel-2">
+      <div class="panel-content container-desktop quote-photos-section text-center">
+
+        <div class="pill-badge pill-badge-outline reveal-up">DESDE NOSOTROS</div>
+
+        <p class="quote-text-main text-secondary reveal-up delay-1 mt-4">
+          Nuestro aniversario no solo celebra lo que fuimos, <br> sino todo en lo que nos estamos
+        </p>
+        <h2 class="quote-cursive-highlight text-primary reveal-up delay-2">
+          ¡te esperamos!
+        </h2>
+
+        <div class="photos-row reveal-up delay-3 my-4">
+          <img src="img/aniversario.png" alt="Equipo Geosatelital" class="photo-item photo-wide" loading="lazy">
+          <img src="img/grid-2.jpg" alt="Oficina Geosatelital" class="photo-item photo-tall" loading="lazy">
+          <img src="img/grid-3.jpg" alt="Premio Geosatelital" class="photo-item photo-tall" loading="lazy">
+        </div>
+
+        <div class="section-action reveal-up delay-4 mt-4">
+          <button class="btn-gradient" onclick="scrollToPanel(3)">¡Te esperamos!</button>
+          <div class="hero-arrow-container mt-2" onclick="scrollToPanel(3)">
+            <i class="fa-solid fa-arrow-down arrow-icon-alt"></i>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="panel panel-light" id="panel-3">
+      <div class="panel-content container-desktop dress-code-section">
+        
+        <!-- <img src="img/line.svg" alt="Decoración" class="dress-line-deco top reveal-up" onerror="this.style.display='none'"> -->
+
+        <div class="dress-header text-center reveal-up delay-1">
+          <div class="pill-badge pill-badge-outline mb-3">IMPORTANTE</div>
+          
+          <h2 class="invite-cursive-title text-primary">
+            <img src="img/separador.svg" alt="Adorno" class="ornament blue-svg"> 
+            Dress Code 
+            <img src="img/separador.svg" alt="Adorno" class="ornament right blue-svg">
+          </h2>
+        </div>
+
+        <div class="card dress-card mt-4 reveal-up delay-2">
+          
+          <div class="dress-alert-box mb-4">
+            <span class="box-label">VESTIMENTA</span>
+            <p class="dress-alert-text">
+              Ropa elegante, <strong>evitar colores:</strong> rojo, amarillo y naranja.
+            </p>
+          </div>
+
+          <div class="masonry-grid">
+            <div class="masonry-col">
+              <img src="img/dress-1.jpg" alt="Dress Code 1" class="dress-img" loading="lazy">
+              <img src="img/dress-3.jpg" alt="Dress Code 3" class="dress-img tall-img" loading="lazy">
+            </div>
+            <div class="masonry-col mt-col">
+              <img src="img/dress-2.jpg" alt="Dress Code 2" class="dress-img tall-img" loading="lazy">
+              <img src="img/dress-4.jpg" alt="Dress Code 4" class="dress-img" loading="lazy">
+            </div>
+          </div>
+          
+        </div>
+<!-- 
+        <img src="img/line.svg" alt="Decoración" class="dress-line-deco bottom reveal-up delay-3 mt-4" onerror="this.style.display='none'">
+ -->
+      </div>
+    </section>
+
+    <section class="panel panel-light" id="panel-4">
+      <div class="panel-content container-desktop party-section text-center">
+
+        <div class="card party-card reveal-up">
+          
+          <div class="party-info-box text-left mb-5">
+            <span class="box-label-top">PARA LA FIESTA</span>
+            <p class="party-intro-text">
+              Llega puntual para apreciar cada instante. <br> Tenemos preparadas muchas sorpresas para ti.
+            </p>
+          </div>
+          
+          <div class="party-features-grid">
+            
+            <div class="feature-item reveal-up delay-1">
+              <div class="feature-image-wrapper">
+                <div class="feature-icon-badge">
+                  <i class="fa-solid fa-drum"></i>
+                </div>
+                <img src="img/orquesta.jpg" alt="Orquesta" class="feature-img" loading="lazy">
+              </div>
+              <div class="feature-text text-center mt-3">
+                <h3 class="feature-title-cursive">Orquesta</h3>
+                <span class="feature-subtitle text-secondary">en vivo</span>
+              </div>
+            </div>
+            
+            <div class="feature-item reveal-up delay-2">
+              <div class="feature-image-wrapper">
+                <div class="feature-icon-badge">
+                  <i class="fa-solid fa-martini-glass-citrus"></i>
+                </div>
+                <img src="img/bar.jpg" alt="Bartender" class="feature-img" loading="lazy">
+              </div>
+              <div class="feature-text text-center mt-3">
+                <h3 class="feature-title-cursive">Bartender</h3>
+                <span class="feature-subtitle text-secondary">+ 10 variedades</span>
+              </div>
+            </div>
+
+          </div>
+          
+        </div>
+
+      </div>
+    </section>
+
+
+<section class="panel panel-dark countdown-panel" id="panel-5">
+      
+      <div class="countdown-bg-overlay"></div>
+
+      <div class="panel-content container-desktop text-center countdown-content">
+        
+        <div class="pill-badge pill-badge-outline reveal-up">CUENTA REGRESIVA</div>
+        
+        <h2 class="invite-cursive-title text-white mt-3 reveal-up delay-1">
+          <img src="img/separador.svg" alt="Adorno" class="ornament"> 
+          Checklist: 
+          <img src="img/separador.svg" alt="Adorno" class="ornament right">
+        </h2>
+        
+        <div class="checklist-inline reveal-up delay-2">
+          <span><i class="fa-regular fa-circle-check text-accent"></i> Outfit</span>
+          <span><i class="fa-regular fa-circle-check text-accent"></i> Actitud</span>
+          <span><i class="fa-regular fa-circle-check text-accent"></i> Puntualidad</span>
+        </div>
+        
+        <div class="timer-container reveal-up delay-3 my-4">
+          <div class="time-box">
+            <span class="time-label">DÍAS</span>
+            <span class="time-num" id="days">00</span>
+          </div>
+          <span class="time-colon">:</span>
+          <div class="time-box">
+            <span class="time-label">HORAS</span>
+            <span class="time-num" id="hours">00</span>
+          </div>
+          <span class="time-colon">:</span>
+          <div class="time-box">
+            <span class="time-label">MINUTOS</span>
+            <span class="time-num" id="minutes">00</span>
+          </div>
+        </div>
+        
+        <div class="save-date-info reveal-up delay-4 mt-5">
+          <i class="fa-regular fa-calendar-check calendar-icon"></i>
+          <p>Guarda estos datos</p>
+        </div>
+        
+        <div class="date-time-boxes reveal-up delay-5 mt-3">
+          <div class="dt-box">17.04.26</div>
+          <div class="dt-box">7 Pm.</div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><script src="script.js"></script>
+</body>
+</html>
